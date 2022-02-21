@@ -9,18 +9,6 @@ import Foundation
 
 class BruteForce {
     
-    public func bruteForce(passwordToUnlock: String) {
-        let ALLOWED_CHARACTERS: [String] = String().printable.map { String($0) }
-
-        var password: String = ""
-        
-        while password != passwordToUnlock {
-            password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
-            print(password)
-        }
-        print(password)
-    }
-    
     func indexOf(character: Character, _ array: [String]) -> Int {
         return array.firstIndex(of: String(character))!
     }
@@ -46,5 +34,16 @@ class BruteForce {
         }
 
         return str
+    }
+    
+    public func getBruteForce(passwordToUnlock: String) {
+        let ALLOWED_CHARACTERS: [String] = String().printable.map { String($0) }
+
+        var password: String = ""
+        
+        while password != passwordToUnlock {
+            password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
+            print(password)
+        }
     }
 }

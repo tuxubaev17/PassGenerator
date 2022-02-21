@@ -9,8 +9,13 @@ import Foundation
 
 class RandomStringGenerator {
     
-   static func randomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
+    static func randomString(completion: @escaping (String) -> (Void)) {
+       DispatchQueue.global(qos: .userInitiated).async {
+           var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+           let rndPswd = String((0..<3).compactMap({ _ in letters.randomElement()! }))
+           print(rndPswd)
+           completion(rndPswd)
+       }
+       
     }
 }

@@ -2,8 +2,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var bruteForce = BruteForce()
-    
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var textField: UITextField!
@@ -23,7 +21,7 @@ class ViewController: UIViewController {
         }
     }
     
-     var isBlack: Bool = false {
+    var isBlack: Bool = false {
         didSet {
             if isBlack {
                 DispatchQueue.main.async {
@@ -37,6 +35,8 @@ class ViewController: UIViewController {
         }
     }
     
+    private var bruteForce = BruteForce()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,12 +46,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onBut(_ sender: Any) {
-        
         isBlack.toggle()
     }
 
     @IBAction func generateButton(_ sender: Any) {
-    
         generatePassword()
     }
     
@@ -60,15 +58,13 @@ class ViewController: UIViewController {
         indicator.startAnimating()
         indicator.isHidden = false
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            let randomPassword = RandomStringGenerator.randomString(length: 3)
-            self.bruteForce.bruteForce(passwordToUnlock: randomPassword)
-            
-            DispatchQueue.main.sync {
-                self.label.isHidden = false
-                self.textField.text = randomPassword
-                self.password = self.textField.text ?? "Error"
-                
+        RandomStringGenerator.randomString { randomString in
+            self.bruteForce.getBruteForce(passwordToUnlock: randomString)
+
+        DispatchQueue.main.sync {
+            self.label.isHidden = false
+            self.textField.text = randomString
+            self.password = self.textField.text ?? "Error"
             }
         }
     }
