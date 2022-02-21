@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-cd-RKK">
-                                <rect key="frame" x="34" y="808" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="34" y="808" width="92" height="30"/>
+                                <state key="normal" title="Change color"/>
                                 <connections>
                                     <action selector="onBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XD4-sb-XPE"/>
                                 </connections>
@@ -31,15 +31,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9r-04-9A3">
-                                <rect key="frame" x="174" y="420" width="67" height="31"/>
+                                <rect key="frame" x="173.5" y="437.5" width="67" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="aQN-OD-ABu"/>
+                                    <constraint firstAttribute="width" constant="67" id="tkz-Kt-2U5"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                 <connections>
                                     <action selector="generateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yNo-hr-NAB"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9s-K5-fQl">
-                                <rect key="frame" x="110" y="193" width="195" height="34"/>
+                                <rect key="frame" x="109.5" y="193" width="195" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="195" id="gjQ-ws-3ml"/>
                                 </constraints>
@@ -53,19 +57,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="B9s-K5-fQl" firstAttribute="top" secondItem="sE5-qb-bN2" secondAttribute="bottom" constant="53" id="84G-Vc-CZ1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d9r-04-9A3" secondAttribute="trailing" constant="173" id="Mu9-ZZ-BdC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3g4-cd-RKK" secondAttribute="bottom" constant="24" id="TtI-lO-Ty2"/>
-                            <constraint firstItem="uBE-BG-Fa2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="156" id="Yiy-WZ-MWR"/>
-                            <constraint firstItem="d9r-04-9A3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bg3-Bi-0w3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3g4-cd-RKK" secondAttribute="trailing" symbolic="YES" id="jPs-EZ-xbg"/>
-                            <constraint firstItem="sE5-qb-bN2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="jyV-wZ-kvG"/>
-                            <constraint firstItem="uBE-BG-Fa2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="kzN-vK-Rmt"/>
-                            <constraint firstItem="sE5-qb-bN2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mVi-gN-U2L"/>
-                            <constraint firstItem="B9s-K5-fQl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="ovZ-Oy-lca"/>
-                            <constraint firstItem="3g4-cd-RKK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="syB-cg-goZ"/>
-                            <constraint firstItem="d9r-04-9A3" firstAttribute="top" secondItem="B9s-K5-fQl" secondAttribute="bottom" constant="193" id="xPs-Xg-8Il"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B9s-K5-fQl" secondAttribute="trailing" constant="109" id="yL5-aU-ZQA"/>
+                            <constraint firstItem="sE5-qb-bN2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9GT-nU-9c5"/>
+                            <constraint firstItem="d9r-04-9A3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BDH-5B-oKf"/>
+                            <constraint firstItem="uBE-BG-Fa2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="FhY-wE-o0I"/>
+                            <constraint firstItem="3g4-cd-RKK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="HkM-pW-gur"/>
+                            <constraint firstItem="d9r-04-9A3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rtk-bi-y9N"/>
+                            <constraint firstItem="B9s-K5-fQl" firstAttribute="leading" secondItem="uBE-BG-Fa2" secondAttribute="trailing" constant="17.5" id="UHP-Gk-Yyw"/>
+                            <constraint firstItem="B9s-K5-fQl" firstAttribute="top" secondItem="sE5-qb-bN2" secondAttribute="bottom" constant="53" id="VZe-mq-Eg3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3g4-cd-RKK" secondAttribute="bottom" constant="24" id="bLe-Us-EgS"/>
+                            <constraint firstItem="B9s-K5-fQl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="feR-Y6-UNY"/>
+                            <constraint firstItem="sE5-qb-bN2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="sRA-LU-PSu"/>
+                            <constraint firstItem="uBE-BG-Fa2" firstAttribute="centerY" secondItem="B9s-K5-fQl" secondAttribute="centerY" id="vHK-Uu-EdO"/>
                         </constraints>
                     </view>
                     <connections>
