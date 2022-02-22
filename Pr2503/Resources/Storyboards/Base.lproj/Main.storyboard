@@ -24,17 +24,11 @@
                                     <action selector="onBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XD4-sb-XPE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE5-qb-bN2">
-                                <rect key="frame" x="186" y="119" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9r-04-9A3">
-                                <rect key="frame" x="173.5" y="437.5" width="67" height="31"/>
+                                <rect key="frame" x="118.5" y="431.5" width="177" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="aQN-OD-ABu"/>
-                                    <constraint firstAttribute="width" constant="67" id="tkz-Kt-2U5"/>
+                                    <constraint firstAttribute="height" constant="43" id="5pf-SR-IqA"/>
+                                    <constraint firstAttribute="width" constant="177" id="j7a-08-sRz"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start"/>
@@ -43,7 +37,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9s-K5-fQl">
-                                <rect key="frame" x="109.5" y="193" width="195" height="34"/>
+                                <rect key="frame" x="109.5" y="238" width="195" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="195" id="gjQ-ws-3ml"/>
                                 </constraints>
@@ -51,8 +45,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBE-BG-Fa2">
-                                <rect key="frame" x="72" y="200" width="20" height="20"/>
+                                <rect key="frame" x="72" y="245" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE5-qb-bN2">
+                                <rect key="frame" x="110" y="119" width="194" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="194" id="cXl-aX-EhR"/>
+                                    <constraint firstAttribute="height" constant="66" id="n3f-Ea-0XJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

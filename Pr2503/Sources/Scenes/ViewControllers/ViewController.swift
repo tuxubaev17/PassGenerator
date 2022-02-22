@@ -8,19 +8,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    fileprivate var password: String {
-        get {
-            return label.text ?? "Error"
-        }
-    
-        set {
-            self.textField.isSecureTextEntry = false
-            self.indicator.hidesWhenStopped = true
-            self.indicator.isHidden = true
-            label.text = newValue
-        }
-    }
-    
     var isBlack: Bool = false {
         didSet {
             if isBlack {
@@ -35,14 +22,12 @@ class ViewController: UIViewController {
         }
     }
     
-    private var bruteForce = BruteForce()
-    
+   private let queue = OperationQueue()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.isSecureTextEntry = true
-        indicator.isHidden = true
-        label.isHidden = true
+        modeNotStarted()
     }
     
     @IBAction func onBut(_ sender: Any) {
@@ -50,25 +35,55 @@ class ViewController: UIViewController {
     }
 
     @IBAction func generateButton(_ sender: Any) {
-        generatePassword()
-    }
-    
-    fileprivate func generatePassword() {
+        modeStart()
         
-        indicator.startAnimating()
-        indicator.isHidden = false
+        guard let splitedPassword = textField.text?.split() else { return }
+        var arrayBruteForcePassword:[BruteForce] = []
         
-        RandomStringGenerator.randomString { randomString in
-            self.bruteForce.getBruteForce(passwordToUnlock: randomString)
-
-        DispatchQueue.main.sync {
-            self.label.isHidden = false
-            self.textField.text = randomString
-            self.password = self.textField.text ?? "Error"
+        DispatchQueue.global(qos: .userInitiated).async {
+            
+            splitedPassword.forEach { element in
+                arrayBruteForcePassword.append(BruteForce(password: element))
+            }
+            
+            arrayBruteForcePassword.forEach { operation in
+                self.queue.addOperation(operation)
+            }
+            
+            self.queue.addBarrierBlock { [unowned self] in
+                DispatchQueue.main.async {
+                    self.label.text = "\(self.textField.text ?? "Error")"
+                    self.modeCompleted()
+                }
             }
         }
     }
+    
+    fileprivate func modeNotStarted() {
+        textField.placeholder = "Пароль"
+        textField.isSecureTextEntry = true
+        generateButton.setTitle("Начать", for: .normal)
+        indicator.stopAnimating()
+        indicator.isHidden = true
+    }
+
+    fileprivate func modeStart() {
+        label.text = "Подбирается пароль..."
+        textField.text = String.random()
+        generateButton.isEnabled = false
+        indicator.startAnimating()
+        indicator.isHidden = false
+    }
+
+   fileprivate func modeCompleted() {
+        textField.isSecureTextEntry = false
+        generateButton.isEnabled = true
+        generateButton.setTitle("Начать", for: .normal)
+        indicator.stopAnimating()
+        indicator.isHidden = true
+    }
 }
+
 
 
 

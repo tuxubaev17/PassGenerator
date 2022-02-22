@@ -7,7 +7,21 @@
 
 import Foundation
 
-class BruteForce {
+class BruteForce: Operation {
+    
+    private var password: String
+    
+    init(password: String) {
+        self.password = password
+    }
+    
+    override func main() {
+        super.main()
+        if isCancelled {
+            return
+        }
+        bruteForce(passwordToUnlock: password)
+    }
     
     func indexOf(character: Character, _ array: [String]) -> Int {
         return array.firstIndex(of: String(character))!
@@ -36,7 +50,7 @@ class BruteForce {
         return str
     }
     
-    public func getBruteForce(passwordToUnlock: String) {
+    public func bruteForce(passwordToUnlock: String) {
         let ALLOWED_CHARACTERS: [String] = String().printable.map { String($0) }
 
         var password: String = ""
